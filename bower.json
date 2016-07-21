@@ -1,0 +1,28 @@
+{
+  "name": "gulp-starter",
+  "description": "gulp starter with sass js img compiling",
+  "main": "dist/index.html",
+  "authors": [
+    "Oleksiy Hryshchenko"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp",
+    "js",
+    "sass",
+    "autoprefixer",
+    "imagemin"
+  ],
+  "homepage": "",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.0"
+  }
+}
