@@ -28,6 +28,11 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^1.5.4",
-    "jshint": "^2.9.2"
+    "gulp-babel": "*",
+    "babel-preset-es2015": "*",
+    "jshint": "^2.9.2",
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0"
   }
 }

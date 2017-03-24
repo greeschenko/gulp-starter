@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
-    del = require('del');
+    del = require('del'),
+    babel = require('gulp-babel');
 
 // Styles
 gulp.task('styles', function() {
@@ -30,13 +31,18 @@ gulp.task('styles', function() {
 // Jade
 gulp.task('jade', function() {
     return gulp.src('./src/tmpl/**/*.jade')
-        .pipe(jade())
+        .pipe(jade({
+            pretty: true
+        }))
         .pipe(gulp.dest('./dist/'));
 });
 
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src('src/js/**/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(rename({
             suffix: '.min'
         }))
