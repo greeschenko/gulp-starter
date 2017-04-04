@@ -20,12 +20,12 @@ gulp.task('styles', function() {
     return gulp.src('./src/sass/**/*.sass')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./web/css'))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(cssnano())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('web/css'));
 });
 
 // Jade
@@ -34,7 +34,7 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./web/'));
 });
 
 // Scripts
@@ -47,7 +47,7 @@ gulp.task('scripts', function() {
             suffix: '.min'
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./web/js'));
 });
 
 // Images
@@ -58,16 +58,16 @@ gulp.task('images', function() {
             progressive: true,
             interlaced: true
         })))
-        .pipe(gulp.dest('./dist/img'));
+        .pipe(gulp.dest('./web/img'));
 });
 
 // Clean
 gulp.task('clean', function() {
-    return del(['dist/css', 'dist/js', 'dist/img']);
+    return del(['web/css', 'web/js', 'web/img']);
 });
 
 gulp.task('all', function() {
-    gulp.src('./dist/**')
+    gulp.src('./web/**')
         .pipe(livereload());
 });
 
@@ -92,7 +92,7 @@ gulp.task('watch', function() {
     // Create LiveReload server
     livereload.listen();
 
-    // Watch any files in dist/, reload on change
-    gulp.watch(['dist/**'], ['all']);
+    // Watch any files in web/, reload on change
+    gulp.watch(['web/**'], ['all']);
 
 });
