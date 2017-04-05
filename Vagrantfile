@@ -15,14 +15,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 1
   end
 
-  config.vm.hostname = "vagrantfores6"
+  config.vm.hostname = "gulpstarter"
 
   # Create a private network, which allows host-only access to the machine using a specific IP.
-  config.vm.network "private_network", ip: "192.168.99.11"
+  config.vm.network "private_network", ip: "192.168.88.88"
   # Forward ports to Apache and MySQL
   config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
   config.vm.network "forwarded_port", guest: 3306, host: 8088, auto_correct: true
-  config.vm.network "forwarded_port", guest: 35729, host: 35729
 
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.

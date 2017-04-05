@@ -15,6 +15,33 @@ var gulp = require('gulp'),
     del = require('del'),
     babel = require('gulp-babel');
 
+//Libs
+gulp.task('libscss', function() {
+    return gulp.src([
+            './node_modules/bootstrap/dist/css/bootstrap.min.css',
+            './node_modules/components-font-awesome/css/font-awesome.min.css',
+        ])
+        .pipe(concat('libs.css'))
+        .pipe(gulp.dest('./web/css'));
+});
+
+gulp.task('libsjs', function() {
+    return gulp.src([
+            './node_modules/jquery/dist/jquery.min.js',
+            './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        ])
+        .pipe(concat('libs.js'))
+        .pipe(gulp.dest('./web/js'));
+});
+
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src([
+            './node_modules/components-font-awesome/fonts/fontawesome-webfont.*'
+        ])
+        .pipe(gulp.dest('./web/fonts'));
+});
+
 // Styles
 gulp.task('styles', function() {
     return gulp.src('./src/sass/**/*.sass')
@@ -76,7 +103,6 @@ gulp.task('default', ['watch']);
 
 // Watch
 gulp.task('watch', function() {
-
     // Watch .scss files
     gulp.watch('./src/sass/**/*.sass', ['styles']);
 
@@ -95,4 +121,7 @@ gulp.task('watch', function() {
     // Watch any files in web/, reload on change
     gulp.watch(['web/**'], ['all']);
 
+    gulp.watch(['web/**'], ['libscss']);
+    gulp.watch(['web/**'], ['libsjs']);
+    gulp.watch(['web/**'], ['fonts']);
 });
