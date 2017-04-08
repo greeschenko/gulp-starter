@@ -52,7 +52,8 @@ gulp.task('styles', function() {
             suffix: '.min'
         }))
         .pipe(cssnano())
-        .pipe(gulp.dest('web/css'));
+        .pipe(gulp.dest('web/css'))
+        .pipe(livereload());
 });
 
 // Jade
@@ -61,7 +62,8 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./web/'));
+        .pipe(gulp.dest('./web/'))
+        .pipe(livereload());
 });
 
 // Scripts
@@ -74,7 +76,8 @@ gulp.task('scripts', function() {
             suffix: '.min'
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('./web/js'));
+        .pipe(gulp.dest('./web/js'))
+        .pipe(livereload());
 });
 
 // Images
@@ -85,17 +88,13 @@ gulp.task('images', function() {
             progressive: true,
             interlaced: true
         })))
-        .pipe(gulp.dest('./web/img'));
+        .pipe(gulp.dest('./web/img'))
+        .pipe(livereload());
 });
 
 // Clean
 gulp.task('clean', function() {
     return del(['web/css', 'web/js', 'web/img']);
-});
-
-gulp.task('all', function() {
-    gulp.src('./web/**')
-        .pipe(livereload());
 });
 
 // Default task
