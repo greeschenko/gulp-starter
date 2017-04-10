@@ -14,6 +14,7 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y firefox
 sudo apt-get install -y htop
+sudo apt-get install -y git
 
 sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update -y
@@ -39,4 +40,4 @@ sudo /etc/init.d/nginx restart
 sudo npm install -g codeceptjs
 sudo npm install selenium-standalone@latest -g
 sudo npm install -g webdriverio
-sudo npm install -g gulp 
+sudo npm install -g gulp
