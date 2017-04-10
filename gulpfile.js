@@ -29,6 +29,7 @@ gulp.task('libsjs', function() {
     return gulp.src([
             './node_modules/jquery/dist/jquery.min.js',
             './node_modules/bootstrap/dist/js/bootstrap.min.js',
+            './node_modules/hatajs/web/js/hatajs.min.js',
         ])
         .pipe(concat('libs.js'))
         .pipe(gulp.dest('./web/js'));
@@ -100,8 +101,13 @@ gulp.task('clean', function() {
 // Default task
 gulp.task('default', ['watch']);
 
+gulp.task('libinit', ['libscss', 'libsjs', 'fonts']);
+
 // Watch
 gulp.task('watch', function() {
+    // Create LiveReload server
+    livereload.listen();
+
     // Watch .scss files
     gulp.watch('./src/sass/**/*.sass', ['styles']);
 
@@ -114,13 +120,4 @@ gulp.task('watch', function() {
     // Watch image files
     gulp.watch('./src/img/**/*', ['images']);
 
-    // Create LiveReload server
-    livereload.listen();
-
-    // Watch any files in web/, reload on change
-    gulp.watch(['web/**'], ['all']);
-
-    gulp.watch(['web/**'], ['libscss']);
-    gulp.watch(['web/**'], ['libsjs']);
-    gulp.watch(['web/**'], ['fonts']);
 });

@@ -12,6 +12,12 @@ sudo apt-get install -y nginx
 sudo apt-get install -y curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt-get install -y firefox
+sudo apt-get install -y htop
+
+sudo add-apt-repository ppa:webupd8team/java -y
+sudo apt-get update -y
+sudo apt-get install oracle-java8-installer
 
 echo "    server {" >> /etc/nginx/sites-available/default
 echo "        listen 80;" >> /etc/nginx/sites-available/default
@@ -29,3 +35,8 @@ echo "        }" >> /etc/nginx/sites-available/default
 echo "    }" >> /etc/nginx/sites-available/default
 
 sudo /etc/init.d/nginx restart
+
+sudo npm install -g codeceptjs
+sudo npm install selenium-standalone@latest -g
+sudo npm install -g webdriverio
+sudo npm install -g gulp 
