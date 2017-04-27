@@ -12,7 +12,7 @@ sudo apt-get install -y nginx
 sudo apt-get install -y curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo apt-get install -y firefox
+sudo apt-get install -y xvfb
 sudo apt-get install -y htop
 sudo apt-get install -y git
 
@@ -38,6 +38,18 @@ echo "    }" >> /etc/nginx/sites-available/default
 sudo /etc/init.d/nginx restart
 
 sudo npm install -g codeceptjs
-sudo npm install selenium-standalone@latest -g
+sudo npm install -g selenium-standalone@latest
 sudo npm install -g webdriverio
 sudo npm install -g gulp
+
+echo "127.0.0.1     ${NAME}.ga"
+
+#firefox 45 install
+wget http://files.iustumliberum.org.ua/firefox45.tar.bz2
+sudo tar xfv firefox45.tar.bz2 -C /opt/
+rm -drvf firefox45.tar.bz2
+sudo chmod +x /opt/firefox/firefox
+sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
+
+#install packages
+cd /var/www/html/ && npm install
