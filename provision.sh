@@ -15,6 +15,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y xvfb
 sudo apt-get install -y htop
 sudo apt-get install -y git
+sudo apt-get install -y firefox
 
 sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update -y
@@ -47,6 +48,8 @@ sudo npm install -g gulp
 echo "127.0.0.1    ${NAME}.ga" >> /etc/hosts
 
 #firefox 45 install
+sudo apt-get remove -y firefox
+
 wget http://files.iustumliberum.org.ua/firefox45.tar.bz2
 sudo tar xfv firefox45.tar.bz2 -C /opt/
 rm -drvf firefox45.tar.bz2
