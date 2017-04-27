@@ -18,7 +18,8 @@ sudo apt-get install -y git
 
 sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update -y
-sudo apt-get install oracle-java8-installer
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+sudo apt-get install oracle-java8-installer -y
 
 echo "    server {" >> /etc/nginx/sites-available/default
 echo "        listen 80;" >> /etc/nginx/sites-available/default
@@ -39,10 +40,11 @@ sudo /etc/init.d/nginx restart
 
 sudo npm install -g codeceptjs
 sudo npm install -g selenium-standalone@latest
+sudo selenium-standalone install
 sudo npm install -g webdriverio
 sudo npm install -g gulp
 
-echo "127.0.0.1     ${NAME}.ga"
+echo "127.0.0.1    ${NAME}.ga" >> /etc/hosts
 
 #firefox 45 install
 wget http://files.iustumliberum.org.ua/firefox45.tar.bz2

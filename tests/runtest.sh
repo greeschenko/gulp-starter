@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-codeceptjs run --steps
+xvfb-run -a codeceptjs run --steps

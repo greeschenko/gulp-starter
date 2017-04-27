@@ -1,6 +1,6 @@
 Feature('Main');
 
-Scenario('test something', (I) => {
+Scenario('test main page work', (I) => {
     I.amOnPage('/');
-    I.see('hatajs');
+    I.see('greeschenko/gulp-starter');
 });

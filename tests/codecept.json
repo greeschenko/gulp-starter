@@ -5,7 +5,8 @@
   "helpers": {
     "WebDriverIO": {
       "url": "http://gulp.ga",
-      "browser": "firefox"
+      "browser": "firefox",
+      "windowSize": "1366x768"
     }
   },
   "include": {
