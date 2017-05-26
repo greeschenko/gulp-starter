@@ -10,7 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    #for setup need > 2Gb after ~500Mb
+    v.memory = 2048
     v.cpus = 1
   end
 
