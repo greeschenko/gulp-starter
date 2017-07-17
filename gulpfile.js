@@ -3,6 +3,7 @@
 // Load plugins
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    browserify = require('gulp-browserify'),
     jade = require('gulp-jade'),
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano'),
@@ -14,26 +15,6 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     del = require('del'),
     babel = require('gulp-babel');
-
-//Libs
-gulp.task('libscss', function() {
-    return gulp.src([
-            './node_modules/bootstrap/dist/css/bootstrap.min.css',
-            './node_modules/components-font-awesome/css/font-awesome.min.css',
-        ])
-        .pipe(concat('libs.css'))
-        .pipe(gulp.dest('./web/css'));
-});
-
-gulp.task('libsjs', function() {
-    return gulp.src([
-            './node_modules/jquery/dist/jquery.min.js',
-            './node_modules/bootstrap/dist/js/bootstrap.min.js',
-            './node_modules/hatajs/web/js/hatajs.min.js',
-        ])
-        .pipe(concat('libs.js'))
-        .pipe(gulp.dest('./web/js'));
-});
 
 // Fonts
 gulp.task('fonts', function() {
@@ -73,6 +54,9 @@ gulp.task('scripts', function() {
         .pipe(babel({
             presets: ['es2015']
         }))
+        .pipe(browserify({
+            insertGlobals: true,
+        }))
         .pipe(rename({
             suffix: '.min'
         }))
@@ -100,8 +84,6 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['watch']);
-
-gulp.task('libinit', ['libscss', 'libsjs', 'fonts']);
 
 // Watch
 gulp.task('watch', function() {
