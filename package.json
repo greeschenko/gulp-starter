@@ -21,7 +21,7 @@
     "@babel/preset-env": "*",
     "gulp": "^3.9.1",
     "gulp-pug": "*",
-    "bootstrap-sass": "*",
+    "bootstrap": "*",
     "components-font-awesome": "^4.7.0",
     "del": "*",
     "gulp-autoprefixer": "*",

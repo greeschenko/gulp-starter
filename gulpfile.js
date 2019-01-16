@@ -17,6 +17,7 @@ var gulp = require('gulp'),
 gulp.task('libscss', function() {
     return gulp.src([
             './node_modules/components-font-awesome/css/font-awesome.min.css',
+            './node_modules/bootstrap/dist/css/bootstrap.min.css',
         ])
         .pipe(concat('libs.css'))
         .pipe(gulp.dest('./web/css'));
@@ -26,6 +27,7 @@ gulp.task('libsjs', function() {
     return gulp.src([
             './node_modules/jquery/dist/jquery.min.js',
             './node_modules/hatajs/web/js/hatajs.min.js',
+            './node_modules/bootstrap/dist/js/bootstrap.min.js',
         ])
         .pipe(concat('libs.js'))
         .pipe(gulp.dest('./web/js'));
