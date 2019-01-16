@@ -4,6 +4,7 @@ html(lang='en')
         meta(charset='utf-8')
         title gulp-starter by greeschenko
         link(href='css/main.min.css', rel='stylesheet')
+        link(href='css/libs.css', rel='stylesheet')
     body
         .container
             h1
@@ -15,16 +16,9 @@ html(lang='en')
                 .col-md-4
                     li "gulp": "^3.9.1",
                     li "gulp-autoprefixer": "^3.1.0",
-                    li "gulp-cache": "^0.4.5",
-                    li "gulp-concat": "^2.6.0",
-                    li "gulp-cssnano": "^2.1.2",
-                    li "gulp-imagemin": "^3.0.2",
-                    li "gulp-jade": "^1.1.0",
+                    li "gulp-pug": "^1.1.0",
                     li "gulp-livereload": "^3.8.1",
-                    li "gulp-rename": "^1.2.2",
                     li "gulp-sass": "^2.3.2",
-                    li "gulp-uglify": "^1.5.4",
-                    li "jshint": "^2.9.2"
                 .col-md-4
                     li "jquery": "^3.1.0",
                     li "bootstrap": "^3.3.7",
@@ -32,4 +26,5 @@ html(lang='en')
             .line-wrap
                 .line
     footer
-    script(src='js/main.min.js')
+    script(src='js/libs.js')
+    script(src='js/main.min.js?ver=0.0.2')
