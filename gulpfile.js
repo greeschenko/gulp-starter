@@ -69,9 +69,9 @@ gulp.task('html', function() {
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src('src/js/**/*.js')
-        //.pipe(babel({
-        //presets: ['env']
-        //}))
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(rename({
             suffix: '.min'
         }))
